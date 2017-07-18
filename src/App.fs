@@ -8,7 +8,7 @@ open Fable.Helpers.React.Props
 
 type Model = string
 
-type Msg = HelloMsg | GoodBeyMsg
+type Msg = HelloMsg | GoodByeMsg
 
 let init () = "Press buttons!", [ ]
 
@@ -17,14 +17,14 @@ let view model dispatch =
         [ ]
         [
             button [ OnClick (fun _ -> dispatch HelloMsg ) ] [ str "Hello" ]
-            button [ OnClick (fun _ -> dispatch GoodBeyMsg ) ] [ str "Goodbye" ]
+            button [ OnClick (fun _ -> dispatch GoodByeMsg ) ] [ str "Goodbye" ]
             str model
         ]
 
 let update msg model =
     match msg with
     | HelloMsg -> "Hello!", [ ]
-    | GoodBeyMsg -> "GoodBye!", [ ]
+    | GoodByeMsg -> "GoodBye!", [ ]
 
 Program.mkProgram init update view
 |> Program.withReact "sampleapp"
